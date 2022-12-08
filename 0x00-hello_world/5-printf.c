@@ -1,13 +1,12 @@
-/* C program to print a string using printf function */
+/* a C program to print a string */
 
 #include <stdio.h>
 
 /**
- * main() - Entry point
+ * main - Entry point
  *
- * Return - Always 0 (all well)
+ * Return:  Always 0 (success)
  */
-
 int main(void)
 {
 	printf("with proper grammar, but the outcome is a piece of art,\n");
