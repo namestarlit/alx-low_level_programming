@@ -9,26 +9,26 @@
 
 int _atoi(char *s)
 {
-	unsigned int i = 0, size = 0, oi = 0, pn = 1, m = 1, i;
+	unsigned int k = 0, size = 0, oi = 0, pn = 1, m = 1, i;
 
-	while (*(s + i) != '\0')
+	while (*(s + k) != '\0')
 	{
-		if (size > 0 && (*(s + i) < '0' || *(s + i) > '9'))
+		if (size > 0 && (*(s + k) < '0' || *(s + k) > '9'))
 			break;
 
-		if (*(s + i) == '-')
+		if (*(s + k) == '-')
 			pn *= -1;
 
-		if ((*(s + i) >= '0') && (*(s + i) <= '9'))
+		if ((*(s + k) >= '0') && (*(s + k) <= '9'))
 		{
 			if (size > 0)
 				m *= 10;
 			size++;
 		}
-		i++;
+		k++;
 	}
 
-	for (i = i - size; i < i; i++)
+	for (i = k - size; i < k; i++)
 	{
 		oi = oi + ((*(s + i) - 48) * m);
 		m /= 10;
