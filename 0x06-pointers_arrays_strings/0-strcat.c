@@ -4,12 +4,11 @@
  * _strcat - concatenates two strings,
  * @dest: destination.
  * @src: source.
- * @n: size in bytes used from src.
  *
  * Return: dest.
  */
 
-char *_strcat(char *dest, char *src, int n)
+char *_strcat(char *dest, char *src)
 {
 	int i = 0, j = 0;
 
@@ -18,11 +17,10 @@ char *_strcat(char *dest, char *src, int n)
 		i++;
 	}
 
-	while (j < n)
+	while (*(src + j) != '\0' )
 	{
 		*(dest + i) = *(src + j);
-		if (*(src + j) == '\0')
-			break;
+
 		i++;
 		j++;
 	}
