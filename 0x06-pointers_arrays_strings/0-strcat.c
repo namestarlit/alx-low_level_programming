@@ -19,6 +19,9 @@ char *_strcat(char *dest, char *src, int n)
 	{
 		i++;
 	}
+
+	j = 0;
+
 	while (j < n)
 	{
 		*(dest + i) = *(src + j);
