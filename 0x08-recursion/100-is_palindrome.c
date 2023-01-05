@@ -32,6 +32,6 @@ int is_palindrome(char *s)
 		return (1);
 	else if (s[0] != s[_strlen - 1])
 		return (0);
-	
+
 	return (is_palindrome(s + 1));
 }
