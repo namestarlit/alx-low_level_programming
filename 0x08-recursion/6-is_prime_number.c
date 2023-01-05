@@ -8,7 +8,7 @@
  */
 int is_prime_number(int n)
 {
-	return (_is_prime(n, 1));
+	return (_is_prime(n, 2));
 }
 
 /**
@@ -31,4 +31,5 @@ int _is_prime(unsigned int n, unsigned int c)
 	{
 		return (_is_prime(n, c + 1));
 	}
+	return (0);
 }
