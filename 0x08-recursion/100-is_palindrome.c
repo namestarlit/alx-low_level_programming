@@ -29,9 +29,9 @@ int is_palindrome(char *s)
 	_strlen = _strlen_recursion(s);
 
 	if (_strlen == 0 || _strlen == 1)
-		return (1);
-	else if (s[0] != s[_strlen - 1])
 		return (0);
+	else if (s[0] != s[_strlen - 1])
+		return (1);
 
 	return (is_palindrome(s + 1));
 }
