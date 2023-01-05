@@ -8,7 +8,10 @@
  */
 int is_prime_number(int n)
 {
-	return (_is_prime(n, 2));
+	if (n <= 1)
+		return (0);
+	else
+		return (_is_prime(n, 2));
 }
 
 /**
