@@ -1,3 +1,6 @@
 #!/bin/bash
-gcc -c -Wall -Werror -Wextra *.c
-ar -rcs libmy.a *.o \
+
+for file in *.c; do
+	gcc -c "$file"
+	ar -rcs libmy.a "${file%.c}.o" 
+done \
