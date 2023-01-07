@@ -1,6 +1,14 @@
 #include "main.h"
 
-int main(int __attribute__((unused))argc, char *arg[])
+/**
+ * main - prints number of arguments
+ * @argc: argument count
+ * @argv: argument vector
+ *
+ * Return: 0 (success)
+ */
+
+int main(int argc, char __attribute__((unused)) *argv[])
 {
 	printf("%d\n", argc);
 
