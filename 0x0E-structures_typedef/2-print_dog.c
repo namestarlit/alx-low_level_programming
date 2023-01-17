@@ -4,6 +4,7 @@
 /**
  * print_dog - prints struct dog
  * @struct dog - contains dog's info
+ * @d: struct dog pointer
  */
 void print_dog(struct dog *d)
 {
