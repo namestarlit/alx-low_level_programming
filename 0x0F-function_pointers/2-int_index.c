@@ -11,22 +11,11 @@
  */
 int int_index(int *array, int size, int (*cmp)(int))
 {
-	int index;
+	int i;
 
-	if (array && cmp)
-	{
-		if (size <= 0)
-			return (-1);
-
-		/* iterate through an array of int */
-		for (index = 0; index < size; index++)
-		{
-			if (cmp(array[index]))
-				return (index);
-		}
-	}
-	else
-		return;
-
-	return (0);
+	if (size > 0 && cmp && size && array)
+		for (i = 0; i <= size; i++)
+			if (cmp(array[i]))
+				return (i);
+	return (-1);
 }
