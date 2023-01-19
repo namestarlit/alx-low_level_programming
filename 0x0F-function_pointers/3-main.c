@@ -1,15 +1,16 @@
 #include "3-calc.h"
 
 /**
- * main - performs simple operations
- * @argc: argument count
- * @argv: argument vector
- * Return: 0 if no errors
+ * main - check the code for Holberton School students.
+ * @argc: argument count.
+ * @argv: argument vector.
+ *
+ * Return: Always 0.
  */
 int main(int argc, char *argv[])
 {
-	register int a, b;
-	int (*fptr)(int, int);
+	int a, b;
+	int (*operation)(int, int);
 
 	if (argc != 4)
 	{
@@ -17,18 +18,23 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 
-	fptr = get_op_func(argv[2]);
-
-	if (!fptr)
+	if (argv[2][1])
 	{
-		printf("Error\n")
+		printf("Error\n");
+		exit(99);
+	}
+
+	operation = get_op_func(argv[2]);
+
+	if (operation == NULL)
+	{
+		printf("Error\n");
 		exit(99);
 	}
 
 	a = atoi(argv[1]);
 	b = atoi(argv[3]);
 
-	printf("%i\n", fptr(a, b));
-
+	printf("%d\n", operation(a, b));
 	return (0);
 }
