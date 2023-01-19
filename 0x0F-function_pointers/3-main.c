@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
 	if (argc != 4)
 	{
 		printf("Error\n");
-		return (1);
+		exit (1);
 	}
 
 	fptr = get_op_func(argv[2]);
@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
 	if (!fptr)
 	{
 		printf("Error\n");
-		return (1);
+		exit (1);
 	}
 
 	a = atoi(argv[1]);
