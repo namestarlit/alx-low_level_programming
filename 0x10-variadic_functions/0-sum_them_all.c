@@ -3,7 +3,7 @@
 
 /**
  * sum_them_all - adds all numbers
- * @n: count of numbers to add
+ * @n: count of all parameter arguments
  *
  * Return: sum
  */
