@@ -4,24 +4,24 @@
  * print_list - prints all elements of a list_t list
  * @h: head node of singly linked list
  *
- * Return: no_el (no of elements)
+ * Return: no_nodes
  */
 size_t print_list(const list_t *h)
 {
 	list_t *ptr;
-	size_t no_el;
+	size_t no_nodes;
 
 	ptr = h;
-	no_el = 0;
+	no_nodes = 0;
 
 	while (ptr != NULL)
 	{
 		if (ptr->str == NULL)
 			printf("[%d] %s\n", 0, "(nill)");
 		else
-			printf("[%d] %s\n",ptr->len, ptr->str);
-		ptr = ptr->next;
-		no_el++;
+			printf("[%d] %s\n", ptr->len, ptr->str);
+		no_nodes++;
 	}
-	return (no_el);
+
+	return (no_nodes);
 }
