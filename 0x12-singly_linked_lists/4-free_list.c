@@ -6,17 +6,17 @@
  */
 void free_list(list_t *head)
 {
-	list_t *current_node, *next_node;
+	list_t *current, *next;
 
-	current_node = head;
+	current = head;
 
-	while (current_node != NULL)
+	while (current != NULL)
 	{
-		next_node = current_node->next;
-		free(current_node->str);
-		free(current_node);
+		next = current->next;
+		free(current->str);
+		free(current);
 
-		/* assign head to the next node */
-		current_node = next_node;
+		/* assign head to next node */
+		current = next;
 	}
 }
