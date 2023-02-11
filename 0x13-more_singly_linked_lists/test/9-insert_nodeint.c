@@ -27,13 +27,14 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	/* if idx does not exist */
 	if (*head == NULL && idx != 0)
 	{
+		free(new_node);
 		return (NULL);
 	}
 
 	if (idx != 0)
 	{
 		/* traverse the linked list to index */
-		for (i = 0; i < idx; i++)
+		for (i = 0; i < idx - 1; i++)
 		{
 			/* change current node to next node */
 			tmp = tmp->next;
