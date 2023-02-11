@@ -13,7 +13,7 @@
  */
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
-	listint_t *new_node, *tmp;
+	listint_t *new_node, *tmp = *head;
 	size_t i;
 
 	/* allocate memory for the new node */
@@ -23,34 +23,35 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 
 	/* assign the value of n */
 	new_node->n = n;
-	tmp = *head;
 
-	/**
-	 * if linked list is empty
-	 * assign new node to be head node
-	 */
-	if (*head == NULL && idx == 0)
+	/* if idx does not exist */
+	if (*head == NULL && idx != 0)
 	{
-		new_node->next = *head;
-		*head = new_node;
+		return (NULL);
 	}
-	if (!idx)
+
+	if (idx != 0)
 	{
 		/* traverse the linked list to index */
 		for (i = 0; i < idx; i++)
 		{
-			/* assign new node to point to the tmp->next node */
-			new_node->next = tmp->next;
-			/* assign tmp->next to point to new node */
-			tmp->next = new_node;
 			/* change current node to next node */
 			tmp = tmp->next;
 		}
-		/* if idx does not exist */
-		if (*head == NULL && idx != 0)
-		{
-			return (NULL);
-		}
 	}
-	return (*head);
+
+	/* insert at the beginning if idx == 0) */
+	if (idx == 0)
+	{
+		new_node->next = *head;
+		*head = new_node;
+	}
+	else
+	{
+		/* assign new node to point to the tmp->next node */
+		new_node->next = tmp->next;
+		/* assign tmp->next to point to new node */
+		tmp->next = new_node;
+	}
+	return (new_node);
 }
