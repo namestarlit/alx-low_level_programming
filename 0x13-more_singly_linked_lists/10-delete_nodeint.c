@@ -14,21 +14,26 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 
 	if (index != 0)
 	{
+		/* traverse the linked list and update previous node */
 		for (i = 0; i < index - 1 && p_node != NULL; i++)
 			p_node = p_node->next;
 	}
 
+	/* if linked list is empty list */
 	if (p_node == NULL)
 	{
 		return (-1);
 	}
+	/* if previous node is pointing to NULL*/
 	if (p_node->next == NULL && index != 0)
 	{
 		return (-1);
 	}
 
+	/* update next node to point to previous node pointer */
 	n_node = p_node->next;
 
+	/* delete at the beginning of the list */
 	if (index != 0)
 	{
 		p_node->next = n_node->next;
@@ -36,6 +41,7 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 	}
 	else
 	{
+		/* delete any node */
 		free(p_node);
 		*head = n_node;
 	}
