@@ -26,6 +26,7 @@ listint_t *add_nodeint_end(listint_t **head, const int n)
 	/* assign new_node to head if it's the first node */
 	if (*head == NULL)
 	{
+		new_node->next = *head;
 		*head = new_node;
 	}
 	else

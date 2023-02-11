@@ -1,28 +1,59 @@
 #include "../lists.h"
 
 /**
- * pop_listint - prints and then deletes contents of
- * head node.
- * @head: pointer to head node
+ * insert_nodeint_at_index - inserts a node at a given
+ * index in a listint_t linked list
+ * @head: double pointer to head node
+ * @idx: index of the node
+ * @n: value to store in the node
  *
- * Return: 0 (linked list is empty), n (head nodes data)
+ * Return: new node address,
+ * NULL (idx does not exists or failed to allocate memory
+ * for the new node).
  */
-int pop_listint(listint_t **head)
+listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
-	listint_t *tmp = *head;
-	int no_data; /* number of head node data */
+	listint_t *new_node, *tmp;
+	size_t i;
 
-	/* check if linked list is empty */
-	if (*head == NULL)
-		return (0);
+	/* allocate memory for the new node */
+	new_node = (listint_t *)malloc(sizeof(listint_t));
+	if (new_node == NULL)
+		return (NULL);
 
-	/* assign n head->n to number of data */
-	no_data = tmp->n;
-	/* assign head to be the next node */
-	*head = tmp->next;
-	free(tmp);
+	/* assign the value of n */
+	new_node->n = n;
+	tmp = *head;
 
-	return (no_data);
+	/**
+	 * if linked list is empty
+	 * assign new node to be head node
+	 */
+	if (*head == NULL && idx == 0)
+	{
+		new_node->next = *head;
+		*head = new_node;
+	}
+	if (!idx)
+	{
+		/* traverse the linked list to index */
+		for (i = 0; i < idx; i++)
+		{
+			/* assign new node to point to the tmp->next node */
+			new_node->next = tmp->next;
+			/* assign tmp->next to point to new node */
+			tmp->next = new_node;
+			/* change current node to next node */
+			tmp = tmp->next;
+		}
+
+		/* if idx does not exist */
+		if (*head == NULL && idx != 0)
+		{
+			return (NULL);
+		}
+	}
+	return (*head);
 }
 
 /**
@@ -51,7 +82,7 @@ listint_t *add_nodeint_end(listint_t **head, const int n)
 	/* assign new_node to head if it's the first node */
 	if (*head == NULL)
 	{
-		new_node->next = *head
+		new_node->next = *head;
 		*head = new_node;
 	}
 	else
@@ -114,7 +145,6 @@ void free_listint2(listint_t **head)
 	*head = NULL;
 }
 
-
 /**
  * main - check the code
  *
@@ -123,7 +153,6 @@ void free_listint2(listint_t **head)
 int main(void)
 {
     listint_t *head;
-    int n;
 
     head = NULL;
     add_nodeint_end(&head, 0);
@@ -135,13 +164,9 @@ int main(void)
     add_nodeint_end(&head, 402);
     add_nodeint_end(&head, 1024);
     print_listint(head);
-    n = pop_listint(&head);
-    printf("- %d\n", n);
-    print_listint(head);
-    n = pop_listint(&head);
-    printf("- %d\n", n);
+    printf("-----------------\n");
+    insert_nodeint_at_index(&head, 5, 4096);
     print_listint(head);
     free_listint2(&head);
-    printf("%p\n", (void *)head);
     return (0);
 }
