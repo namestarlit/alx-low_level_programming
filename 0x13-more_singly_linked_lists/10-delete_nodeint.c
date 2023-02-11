@@ -7,9 +7,10 @@
  *
  * Return: 1 (success), -1 (failed)
  */
-int delete_nodeint_at_index(lisint_t **head, unsigned int index)
+int delete_nodeint_at_index(listint_t **head, unsigned int index)
 {
 	listint_t *n_node, *p_node = *head;
+	size_t i;
 
 	if (index != 0)
 	{
