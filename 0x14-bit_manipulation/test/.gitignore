@@ -1,4 +1,5 @@
 0-binary_to_uint
+100-get_endianness
 1-print_binary
 2-get_bit
 3-set_bit
