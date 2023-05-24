@@ -2,6 +2,5 @@ CC = gcc
 # map to all .c files.
 SRC := $(wildcard *.c)
 
-all: ${SRC}
-	# $^ defines all prerequisite.
-	${CC} $^ -o school
+all: $(SRC)
+	$(CC) $^ -o school
