@@ -3,6 +3,7 @@
 Module that calculates the perimeter of an island in a grid.
 """
 
+
 def count_water_neighbors(grid, row, col):
     """
     Returns the number of water neighbors a cell has in a grid.
